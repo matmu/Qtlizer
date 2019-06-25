@@ -1,0 +1,60 @@
+---
+title: "qtlizer Package"
+output: BiocStyle::html_document
+author: "Julia Remes"
+vignette: >
+    %\VignetteIndexEntry{qtlizer}
+    %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteEncoding{UTF-8}
+---
+
+
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+    collapse = TRUE,
+    comment = "#>"
+)
+```
+
+#Introduction 
+The qtlizer package is written to provide the function of making a query 
+to Qtilzer and obtain the results in a specified file.
+
+#Add package to working directory
+```{r setup}
+library(qtilzerPackage)
+```
+
+
+#Example function calls
+One can call the qtfun function with a single query: 
+```{r}
+# Call qtfun with a single query
+qtfun('rs4284742')
+```
+
+It is also possible to call the function with more than one query:
+```{r}
+# Call qtfun with serveral queries
+qtfun('rs4284742, rs2070901, DEFA1, ENSG00000122194, 
+    hg19:19:45412079, hg38:6:12903725')
+```
+
+The first parameter will always be the query.
+
+Optionally the name of the output file can 
+be specified in a second parameter:
+```{r}
+# Call qtfun with a single query
+qtfun('rs4284742', 'outputName.txt')
+```
+
+#Output of Session Info
+Here is the output of ```sessionInfo()``` on the system 
+on which this document was compiled: 
+```{r}
+sessionInfo()
+```
+
