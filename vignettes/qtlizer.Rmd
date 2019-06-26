@@ -9,8 +9,6 @@ vignette: >
 ---
 
 
-
-
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
     collapse = TRUE,
@@ -20,36 +18,27 @@ knitr::opts_chunk$set(
 
 #Introduction 
 The qtlizer package is written to provide the function of making a query 
-to Qtilzer and obtain the results in a specified file.
+to Qtilzer and obtain the results as a data frame.
 
 #Add package to working directory
 ```{r setup}
-library(qtilzerPackage)
+library(Qtlizer)
 ```
 
 
 #Example function calls
-One can call the qtfun function with a single query: 
+One can call the get_qtls function with a single query: 
 ```{r}
-# Call qtfun with a single query
-qtfun('rs4284742')
+# Call get_qtls with a single query
+get_qtls('rs4284742')
 ```
 
 It is also possible to call the function with more than one query:
 ```{r}
-# Call qtfun with serveral queries
-qtfun('rs4284742, rs2070901, DEFA1, ENSG00000122194, 
-    hg19:19:45412079, hg38:6:12903725')
+# Call get_qtls with serveral queries
+get_qtls('rs4284742, rs2070901')
 ```
 
-The first parameter will always be the query.
-
-Optionally the name of the output file can 
-be specified in a second parameter:
-```{r}
-# Call qtfun with a single query
-qtfun('rs4284742', 'outputName.txt')
-```
 
 #Output of Session Info
 Here is the output of ```sessionInfo()``` on the system 

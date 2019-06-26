@@ -1,22 +1,17 @@
 #'Query Qtlizer
 #'
-#'@description Makes a query at Qtlizer and writes the results 
-#'into a specified (or default) file.
+#'@description Makes a query at Qtlizer and returns results as data frame.
 #'
-#'@param query The qtlizer query.
-#'@param outputFile (optional) The name of the output file.
-#'@return Response goes directly into the output file.
-#'@examples qtfun("rs4284742")
-#'qtfun("rs4284742", "outputFile.txt")
+#'@param query The qtlizer query. Can either be a single string or a vector.
+#'@return Data frame with response.
+#'@examples get_qtls("rs4284742")
+#'
 #'@importFrom utils write.table
 #'@export
-qtfun <- function(query, outputFile=of_default){
+get_qtls <- function(query){
     #Note: in the current version of Qtlizer, queries including 
     #gene identifier and chromosomal positions
     #of variants taker longer than if using rsids only
-
-    of_default <- "defaultFile.txt"
-    output_file <- outputFile
     q <- query
     corr <- 0.8 # optional
     ld_method <- "r2" # optional
@@ -39,15 +34,6 @@ qtfun <- function(query, outputFile=of_default){
 
     m <- matrix(data, ncol=ncols, byrow=TRUE)
     d <- as.data.frame(m, stringsAsFactors=FALSE)
-
-    write.table(meta, file=output_file, quote = FALSE, append=FALSE,
-        row.names = FALSE, col.names = FALSE)
-
-    write.table(gsub(", ", "\t",toString(header)), file=output_file, 
-        quote = FALSE,  append=TRUE, 
-        row.names = FALSE, col.names = FALSE)
-
-    write.table(d, file=output_file, sep="\t", quote = FALSE, 
-        append=TRUE, row.names = FALSE, col.names = FALSE)
+    return(d)
 
 }
