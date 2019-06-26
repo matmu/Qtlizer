@@ -11,16 +11,14 @@ devtools::install_github('matmu/qtlizer')
 ```
 
 ## Usage
-Simply call the function with the query. The output will be written into an output file. 
+Simply call the function with the query. The output will be returned as a data frame.
 
 ```R
-qtfun('rs4284742')
+get_qtls('rs4284742')
 ```
-
-The name of the output file can also be specified:
-
+It is also possible to make a query with a vector: 
 ```R
-qtfun('rs4284742', 'out.txt')
+get_qtls(c("rs4284742", "DEFA1"))
 ```
 
 ## Authors

@@ -1,5 +1,5 @@
 ---
-title: "qtlizer Package"
+title: "Qtlizer"
 output: BiocStyle::html_document
 author: "Julia Remes"
 vignette: >
@@ -33,12 +33,17 @@ One can call the get_qtls function with a single query:
 get_qtls('rs4284742')
 ```
 
-It is also possible to call the function with more than one query:
+It is also possible to call the function with more than one query and single string:
 ```{r}
 # Call get_qtls with serveral queries
 get_qtls('rs4284742, rs2070901')
 ```
 
+Another possibility is to make a single request with a vector of queries:
+```{r}
+# Call get_qtls with serveral queries
+get_qtls(c("rs4284742", "DEFA1"))
+```
 
 #Output of Session Info
 Here is the output of ```sessionInfo()``` on the system 

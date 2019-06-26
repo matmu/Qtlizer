@@ -5,6 +5,7 @@
 #'@param query The qtlizer query. Can either be a single string or a vector.
 #'@return Data frame with response.
 #'@examples get_qtls("rs4284742")
+#'get_qtls(c("rs4284742", "DEFA1"))
 #'
 #'@importFrom utils write.table
 #'@export
@@ -12,7 +13,13 @@ get_qtls <- function(query){
     #Note: in the current version of Qtlizer, queries including 
     #gene identifier and chromosomal positions
     #of variants taker longer than if using rsids only
-    q <- query
+    len = length(query)
+    if(len == 1){ #single string
+      q <- query
+    } else{
+      q <- paste(query, collapse = ' ') #make a single query
+    }
+    
     corr <- 0.8 # optional
     ld_method <- "r2" # optional
     url <- paste('http://genehopper.de/rest/qtlizer?q=', gsub("\\s+", ",", q), 
