@@ -24,7 +24,16 @@ The name of the output file can also be specified:
 qtfun('rs4284742', 'out.txt')
 ```
 
-## Authors and acknoledgment
+## Authors and acknowledgments
+
+## Citation
+Please cite the following article when using `Qtlizer`:
+
+**Yu G**<sup>\#</sup>, Li F<sup>\#</sup>, Qin Y, Bo X<sup>\*</sup>, Wu Y
+and Wang S<sup>\*</sup> (2018) Qtlizer: comprehensive QTL annotation of GWAS results. ***bioRxiv***.
+
+[![](https://img.shields.io/badge/doi-10.1093/bioinformatics/btq064-green.svg)](https://doi.org/10.1093/bioinformatics/btq064)
+[![](https://img.shields.io/badge/Altmetric-19-green.svg)](https://www.altmetric.com/details/100979)
 
 ## License
 
