@@ -25,7 +25,8 @@ The name of the output file can also be specified:
 qtfun('rs4284742', 'out.txt')
 ```
 
-## Authors and acknowledgments
+## Authors
+Matthias Munz & Julia Remes, University of Lübeck, Germany
 
 ## Citation
 Please cite the following article when using `Qtlizer`:
