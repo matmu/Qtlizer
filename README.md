@@ -35,5 +35,5 @@ Please cite the following article when using `Qtlizer`:
 [![](https://img.shields.io/badge/Altmetric-17-green.svg)](https://www.altmetric.com/details/52777590)
 
 ## License
-
+GNU General Public License v3.0
 
