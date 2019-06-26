@@ -29,8 +29,7 @@ qtfun('rs4284742', 'out.txt')
 ## Citation
 Please cite the following article when using `Qtlizer`:
 
-**Yu G**<sup>\#</sup>, Li F<sup>\#</sup>, Qin Y, Bo X<sup>\*</sup>, Wu Y
-and Wang S<sup>\*</sup> (2018) Qtlizer: comprehensive QTL annotation of GWAS results. ***bioRxiv***.
+**Munz M**, Wohlers I, Simon E, Busch H, Schaefer A<sup>\*</sup> and Erdmann J <sup>\*</sup> (2018) Qtlizer: comprehensive QTL annotation of GWAS results. ***bioRxiv***.
 
 [![](https://img.shields.io/badge/doi-10.1093/bioinformatics/btq064-green.svg)](https://doi.org/10.1093/bioinformatics/btq064)
 [![](https://img.shields.io/badge/Altmetric-19-green.svg)](https://www.altmetric.com/details/100979)
