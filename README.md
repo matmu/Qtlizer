@@ -4,14 +4,14 @@ This package offers the possibility to send requests to Qtlizer. Qtlizer comment
 
 The user can use a function to make requests to Qtilzer and receives an output file with the requested data. 
 
-##Installation
+## Installation
 For example use the 
 ```
 install_github()
 ```
 command provided by the devtools package.
 
-##Usage
+## Usage
 Simply call the function with the query. The output will be written into an output file. 
 
 ```R
@@ -24,8 +24,8 @@ The name of the output file can also be specified:
 qtfun('rs4284742', 'out.txt')
 ```
 
-##Authors and acknoledgment
+## Authors and acknoledgment
 
-##License
+## License
 
 
