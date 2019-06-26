@@ -17,5 +17,6 @@ Makes a query at Qtlizer and returns results as data frame.
 }
 \examples{
 get_qtls("rs4284742")
+get_qtls(c("rs4284742", "DEFA1"))
 
 }

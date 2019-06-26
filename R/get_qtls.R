@@ -15,9 +15,9 @@ get_qtls <- function(query){
     #of variants taker longer than if using rsids only
     len = length(query)
     if(len == 1){ #single string
-      q <- query
+        q <- query
     } else{
-      q <- paste(query, collapse = ' ') #make a single query
+        q <- paste(query, collapse = ' ') #make a single query
     }
     
     corr <- 0.8 # optional
