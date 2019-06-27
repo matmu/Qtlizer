@@ -18,4 +18,4 @@ Suggests:  BiocStyle,
     rmarkdown
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
-biocViews: GenomeAnnotation, GenomeWideAssociation
+biocViews: GenomeWideAssociation, SNP, Genetics 

@@ -7,7 +7,7 @@ The user can use a function to make requests to Qtilzer and receives an output f
 
 ## Installation
 ```R
-devtools::install_github('matmu/qtlizer')
+devtools::install_github('matmu/Qtlizer')
 ```
 
 ## Usage

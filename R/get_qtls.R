@@ -7,7 +7,6 @@
 #'@examples get_qtls("rs4284742")
 #'get_qtls(c("rs4284742", "DEFA1"))
 #'
-#'@importFrom utils write.table
 #'@export
 get_qtls <- function(query){
     #Note: in the current version of Qtlizer, queries including 
