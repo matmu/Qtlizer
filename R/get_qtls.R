@@ -33,6 +33,8 @@ get_qtls <- function(query, corr = 0.8){
     header <- unlist(strsplit(data[1], "\t"))
     ncols <- length(header)
 
+    
+
     if(is.null(data[-1])){
         data <- NA
     } else {
@@ -41,6 +43,8 @@ get_qtls <- function(query, corr = 0.8){
 
     m <- matrix(data, ncol=ncols, byrow=TRUE)
     d <- as.data.frame(m, stringsAsFactors=FALSE)
+    colnames(d) = header
+    comment(d) = meta
     return(d)
 
 }
