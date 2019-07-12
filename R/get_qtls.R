@@ -3,12 +3,13 @@
 #'@description Makes a query at Qtlizer and returns results as data frame.
 #'
 #'@param query The qtlizer query. Can either be a single string or a vector.
+#'@param corr Value between 0 and 1. Default value is 0.8. 
 #'@return Data frame with response.
 #'@examples get_qtls("rs4284742")
 #'get_qtls(c("rs4284742", "DEFA1"))
 #'
 #'@export
-get_qtls <- function(query){
+get_qtls <- function(query, corr = 0.8){
     #Note: in the current version of Qtlizer, queries including 
     #gene identifier and chromosomal positions
     #of variants taker longer than if using rsids only
@@ -19,8 +20,8 @@ get_qtls <- function(query){
         q <- paste(query, collapse = ' ') #make a single query
     }
     
-    corr <- 0.8 # optional
-    ld_method <- "r2" # optional
+  #  corr <- 0.8 # optional zw 0 und 1 r2 nennen
+    ld_method <- "r2" # optional default
     url <- paste('http://genehopper.de/rest/qtlizer?q=', gsub("\\s+", ",", q), 
         "&corr=", corr, "&ld_method=", ld_method, sep="")
     response <- httr::POST(url)

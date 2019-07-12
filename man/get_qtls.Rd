@@ -4,7 +4,7 @@
 \alias{get_qtls}
 \title{Query Qtlizer}
 \usage{
-get_qtls(query)
+get_qtls(query, corr = 0.8)
 }
 \arguments{
 \item{query}{The qtlizer query. Can either be a single string or a vector.}

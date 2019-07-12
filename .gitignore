@@ -32,3 +32,5 @@ Meta
 .seed
 .settings
 .tm_properties
+test.R
+.RData
