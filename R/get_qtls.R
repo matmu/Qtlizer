@@ -48,7 +48,7 @@ get_qtls <- function(query, r2 = 0.8){
     }
     max_terms = 2 #maximum number of queries made at a time
     spltq <- unlist(strsplit(q, " "))
-    y <- matrix(spltq,  ncol=max_terms)
+    y <- matrix(spltq,  ncol=min(max_terms, length(spltq)))
     s <- apply(y,1,paste,collapse=" ")
     return(lapply(s, mkQuery, r2 = r2))
 
