@@ -43,6 +43,7 @@ get_qtls <- function(query, corr = 0.8){
 
     m <- matrix(data, ncol=ncols, byrow=TRUE)
     d <- as.data.frame(m, stringsAsFactors=FALSE)
+    d[d=="-"] <- NA
     colnames(d) = header
     comment(d) = meta
     return(d)
