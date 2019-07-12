@@ -4,12 +4,12 @@
 \alias{get_qtls}
 \title{Query Qtlizer}
 \usage{
-get_qtls(query, corr = 0.8)
+get_qtls(query, r2 = 0.8)
 }
 \arguments{
 \item{query}{The qtlizer query. Can either be a single string or a vector.}
 
-\item{corr}{Value between 0 and 1. Default value is 0.8.}
+\item{r2}{Optional value between 0 and 1. Default value is 0.8.}
 }
 \value{
 Data frame with response.
@@ -20,5 +20,5 @@ Makes a query at Qtlizer and returns results as data frame.
 \examples{
 get_qtls("rs4284742")
 get_qtls(c("rs4284742", "DEFA1"))
-
+get_qtls("rs4284742", 0.6)
 }

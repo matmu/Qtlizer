@@ -3,11 +3,11 @@
 #'@description Makes a query at Qtlizer and returns results as data frame.
 #'
 #'@param query The qtlizer query. Can either be a single string or a vector.
-#'@param corr Value between 0 and 1. Default value is 0.8. 
+#'@param r2 Optional value between 0 and 1. Default value is 0.8. 
 #'@return Data frame with response.
 #'@examples get_qtls("rs4284742")
 #'get_qtls(c("rs4284742", "DEFA1"))
-#'
+#'get_qtls("rs4284742", 0.6)
 #'@export
 get_qtls <- function(query, r2 = 0.8){
     #Note: in the current version of Qtlizer, queries including 
@@ -20,7 +20,7 @@ get_qtls <- function(query, r2 = 0.8){
         q <- paste(query, collapse = ' ') #make a single query
     }
     
-  #  corr <- 0.8 # optional zw 0 und 1 r2 nennen
+    #corr <- 0.8 # optional zw 0 und 1 r2 nennen
     ld_method <- "r2" # optional default
     print("connecting to Qtlizer...  ")
     url <- paste('http://genehopper.de/rest/qtlizer?q=', gsub("\\s+", ",", q), 
