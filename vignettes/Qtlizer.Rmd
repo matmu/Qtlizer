@@ -42,9 +42,14 @@ get_qtls('rs4284742, rs2070901')
 Another possibility is to make a single request with a vector of queries:
 ```{r}
 # Call get_qtls with serveral queries
-get_qtls(c("rs4284742", "DEFA1"))
+df = get_qtls("rs4284742 DEFA1")
 ```
 
+There is meta info added to the returned data frame which can be accessed:
+```{r}
+# Get meta info
+attributes(get_qtls("rs4284742")[[1]])
+```
 #Output of Session Info
 Here is the output of ```sessionInfo()``` on the system 
 on which this document was compiled: 

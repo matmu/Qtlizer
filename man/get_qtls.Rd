@@ -9,7 +9,8 @@ get_qtls(query, r2 = 0.8)
 \arguments{
 \item{query}{The qtlizer query. Can either be a single string or a vector.}
 
-\item{r2}{Optional value between 0 and 1. Default value is 0.8.}
+\item{r2}{Linkage disequilibrium based on 1000Genomes Phase 3 European.
+Optional value between 0 and 1. Default value is 0.8.}
 }
 \value{
 Data frame with response.

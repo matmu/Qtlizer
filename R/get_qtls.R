@@ -3,7 +3,8 @@
 #'@description Makes a query at Qtlizer and returns results as data frame.
 #'
 #'@param query The qtlizer query. Can either be a single string or a vector.
-#'@param r2 Optional value between 0 and 1. Default value is 0.8. 
+#'@param r2 Linkage disequilibrium based on 1000Genomes Phase 3 European.
+#' Optional value between 0 and 1. Default value is 0.8. 
 #'@return Data frame with response.
 #'@examples get_qtls("rs4284742")
 #'get_qtls(c("rs4284742", "DEFA1"))
