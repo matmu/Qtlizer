@@ -18,18 +18,21 @@ get_qtls <- function(query, r2 = 0.8, max_terms = 10){
     #inside function that actually makes the queries
     mkQuery <- function(q, r2 = 0.8){
         ld_method <- "r2" # optional default
-        print(paste("connecting to Qtlizer with query ", q, " ......"))
+        
         url <- paste('http://genehopper.de/rest/qtlizer?q=', gsub("\\s+", ",", q), 
             "&corr=", r2, "&ld_method=", ld_method, sep="")
+        message("Retrieving QTL information from Qtlizer… ")
         response <- httr::POST(url)
         result <- httr::content(response)
     
         a <- unlist(strsplit(result , "\n"))
         meta <- grep("^#", a, value = TRUE)
         data <- grep("^[^#]", a, value = TRUE)
+        message(length(data)-1, " data points retrieved")
         header <- unlist(strsplit(data[1], "\t"))
         ncols <- length(header)
-    
+        if(!is.null(a) && is.null(grep("^#", a))) {warning(a)} #print return value if no QTL
+        
         if(is.null(data[-1])){
             data <- NA
         } else {
@@ -40,7 +43,8 @@ get_qtls <- function(query, r2 = 0.8, max_terms = 10){
         d[d=="-"] <- NA
         colnames(d) = header
         comment(d) = meta
-        print(paste("finished query ",q ))
+        
+        message("Done.")
         return(d)
     } 
     #convert convert into the desired shape
@@ -52,8 +56,14 @@ get_qtls <- function(query, r2 = 0.8, max_terms = 10){
     }
     
     spltq <- unlist(strsplit(q, " "))
+    message(length(spltq)," query terms found")
+    fill = max_terms - length(spltq) %% max_terms
+    if (fill != 0 && max_terms != 1)
+        {spltq <- c(spltq, vector(mode = "character", length = fill))}
     y <- matrix(spltq,  ncol=min(max_terms, length(spltq)))
     s <- apply(y,1,paste,collapse=" ")
+    
+    if (!curl::has_internet()) {warning("no internet connection detected....")}
     return(lapply(s, mkQuery, r2 = r2))
 
 }
