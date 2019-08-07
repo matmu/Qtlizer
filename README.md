@@ -22,7 +22,9 @@ get_qtls(c("rs4284742", "DEFA1"))
 ```
 
 ## Authors
-Matthias Munz & Julia Remes, University of Lübeck, Germany
+Matthias Munz [![](https://img.shields.io/twitter/follow/_matmu?label=Follow&style=social)](https://img.shields.io/twitter/follow/_matmu?label=Follow&style=social)\
+Julia Remes\
+University of Lübeck, Germany
 
 ## Citation
 Please cite the following article when using `Qtlizer`:
