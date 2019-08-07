@@ -5,12 +5,15 @@
 #'@param query The qtlizer query. Can either be a single string or a vector.
 #'@param r2 Linkage disequilibrium based on 1000Genomes Phase 3 European.
 #' Optional value between 0 and 1. Default value is 0.8. 
+#'@param max_terms Number of queries made at a time.  The default value is 10. 
+#'It is recommended to not set the value higher than 10.
 #'@return Data frame with response.
 #'@examples get_qtls("rs4284742")
 #'get_qtls(c("rs4284742", "DEFA1"))
 #'get_qtls("rs4284742", 0.6)
+#'get_qtls("rs4284742", max_terms = 4)
 #'@export
-get_qtls <- function(query, r2 = 0.8){
+get_qtls <- function(query, r2 = 0.8, max_terms = 10){
     
     #inside function that actually makes the queries
     mkQuery <- function(q, r2 = 0.8){
@@ -47,7 +50,7 @@ get_qtls <- function(query, r2 = 0.8){
     } else{
         q <- paste(query, collapse = ' ') #make a single query
     }
-    max_terms = 2 #maximum number of queries made at a time
+    
     spltq <- unlist(strsplit(q, " "))
     y <- matrix(spltq,  ncol=min(max_terms, length(spltq)))
     s <- apply(y,1,paste,collapse=" ")

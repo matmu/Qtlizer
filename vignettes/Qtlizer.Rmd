@@ -33,7 +33,8 @@ One can call the get_qtls function with a single query:
 get_qtls('rs4284742')
 ```
 
-It is also possible to call the function with more than one query and single string:
+It is also possible to call the function 
+with more than one query and a single string:
 ```{r}
 # Call get_qtls with serveral queries
 get_qtls('rs4284742, rs2070901')
@@ -42,7 +43,15 @@ get_qtls('rs4284742, rs2070901')
 Another possibility is to make a single request with a vector of queries:
 ```{r}
 # Call get_qtls with serveral queries
-df = get_qtls("rs4284742 DEFA1")
+df = get_qtls(c("rs4284742", "DEFA1"))
+```
+
+If many requests are to be made, 
+a maximum of max_terms queries are made at once. 
+This term can be changed manually (default is 10):
+```{r}
+# Get meta info
+df2 = get_qtls(c("rs4284742", "DEFA1"), max_terms = 1)
 ```
 
 There is meta info added to the returned data frame which can be accessed:
