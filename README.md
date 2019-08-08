@@ -3,7 +3,9 @@
 
 This package offers the possibility to send requests to Qtlizer. Qtlizer comments on lists of common small variants and genes in humans with associated changes in gene expression using the most comprehensive database of published quantitative trait loci (QTLs) to date.
 
-The user can use a function to make requests to Qtilzer and receives an output file with the requested data. 
+The user can use the get_qtls() function to make requests to Qtilzer and receives a data frame with the requested data. The queries are made with the Genehopper REST API () which can also be used directly by the user (http://genehopper.de/rest).
+
+There is also a Qtlizer-GUI that can be used (http://genehopper.de/qtlizer). More information about Qtlizer and some help can be found at  http://genehopper.de/help#qtlizer_docu .
 
 ## Installation
 ```R
@@ -17,9 +19,26 @@ Simply call the function with the query. The output will be returned as a data f
 get_qtls('rs4284742')
 ```
 It is also possible to make a query with a vector: 
+
 ```R
 get_qtls(c("rs4284742", "DEFA1"))
 ```
+
+The allowed query identifiers are: 
+
++ Rsid : rs + number e.g. "rs4284742"
++ reference:chr:pos e.g. "hg19:19:45412079"
++ Gene symbol consisting of letters and numbers according to  [https://www.genenames.org/about/guidelines/]( https://www.genenames.org/about/guidelines/)
+
+### Column Description
+The column description of the received dataframe can be accessed by calling:
+
+```R
+attributes(get_qtls("rs4284742")[[1]])
+```
+
+### Example Project
+There is an example project on Google Colab at https://colab.research.google.com/drive/1i1sjQHCjaw2wYzVBnXQ9iaghnk-jSU95#scrollTo=5Hi6sCe7SPFb . The link leads you to the project and allows read access. To run the project, make a private copy or open the project in Playground mode and sign in to Google. 
 
 ## Authors
 Matthias Munz [![](https://img.shields.io/twitter/follow/_matmu?label=Follow&style=social)](https://img.shields.io/twitter/follow/_matmu?label=Follow&style=social)\
