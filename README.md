@@ -39,8 +39,8 @@ df = get_qtls("rs4284742")
 attributes(df[[1]])
 ```
 
-### Example Project
-If you want to try out the R package online, there is an example project on Google Colab at https://colab.research.google.com/drive/1i1sjQHCjaw2wYzVBnXQ9iaghnk-jSU95#scrollTo=5Hi6sCe7SPFb . The link leads you to the project and allows read access. To run the project, make a private copy or open the project in Playground mode and sign in to Google. 
+### Try out online
+If you want to try out the R package online, there is an example project on Google Colab at https://colab.research.google.com/drive/1i1sjQHCjaw2wYzVBnXQ9iaghnk-jSU95#scrollTo=5Hi6sCe7SPFb . The link leads you to the project and allows read access. To run the project, make a private copy or open the project in playground mode and sign in to Google. 
 
 
 ## Authors
