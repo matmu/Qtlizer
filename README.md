@@ -24,7 +24,7 @@ All kind of standard seperators (space, comma, space + comma, ...) are accepted.
 get_qtls(c("rs4284742", "DEFA1"))
 ```
 
-Aaccepted query identifiers are: 
+Accepted query terms are variant and gene identifiers of the form: 
 
 + Rsid : rs + number e.g. "rs4284742"
 + reference:chr:pos e.g. "hg19:19:45412079" (Allowed references: hg19/GRCh37, hg38/GRCh38; accepted chromosomes are 1-22)
@@ -36,7 +36,7 @@ The column description of the received dataframe can be accessed by calling:
 
 ```R
 df = get_qtls("rs4284742")
-attributes(df[[1]])
+comment(df)
 ```
 
 ### Try out online
