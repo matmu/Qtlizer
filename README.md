@@ -1,11 +1,11 @@
 # Qtlizer: comprehensive QTL annotation of GWAS results
 [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?hashtags=Qtlizer&url=https://www.biorxiv.org/content/10.1101/495903v2&screen_name=_matmu)
 
-This package offers the possibility to send requests to Qtlizer. Qtlizer comments on lists of common small variants and genes in humans with associated changes in gene expression using the most comprehensive database of published quantitative trait loci (QTLs) to date.
+This package offers the possibility to send requests to **Qtlizer**. **Qtlizer** annotates lists of common small variants and genes in humans with associated changes in gene expression using the most comprehensive database of published quantitative trait loci (QTLs) to date.
 
-The user can use the `get_qtls()` function to make requests to Qtilzer and receives a data frame with the requested data. The queries are made with the Genehopper REST API (http://genehopper.de/rest) which can also be used directly by the user.
+The user can use the `get_qtls()` function to make requests to **Qtilzer** and receives a data frame with the requested data. The queries are made with the Genehopper REST API (http://genehopper.de/rest) which can also be used directly by the user.
 
-There is also a Qtlizer GUI that can be used (http://genehopper.de/qtlizer). More information about Qtlizer and detailed documentation about usage and available datasets can be found at  http://genehopper.de/help#qtlizer_docu .
+There is also a **Qtlizer GUI** that can be used (http://genehopper.de/qtlizer). More information about **Qtlizer** and detailed documentation about usage and available datasets can be found at http://genehopper.de/help#qtlizer_docu .
 
 ## Installation
 ```R
@@ -40,7 +40,7 @@ comment(df)
 ```
 
 ### Try out online
-If you want to try out the R package online, there is an example project on Google Colaboratory at https://colab.research.google.com/drive/1i1sjQHCjaw2wYzVBnXQ9iaghnk-jSU95#scrollTo=5Hi6sCe7SPFb . The link leads you to the project and allows read access. To run the project, make a private copy or open the project in playground mode and sign in to Google. 
+If you want to try out the R package online, there is an example **Google Colaboratory project** at https://colab.research.google.com/drive/1i1sjQHCjaw2wYzVBnXQ9iaghnk-jSU95#scrollTo=5Hi6sCe7SPFb . The link leads you to the project and allows read access. To run the project, make a private copy or open the project in playground mode and sign in to Google. 
 
 
 ## Authors
@@ -50,7 +50,7 @@ University of Lübeck, Germany
 
 
 ## Citation
-Please cite the following article when using `Qtlizer`:
+Please cite the following article when using **Qtlizer**:
 
 **Munz M**, Wohlers I, Simon E, Busch H, Schaefer A<sup>\*</sup> and Erdmann J <sup>\*</sup> (2018) Qtlizer: comprehensive QTL annotation of GWAS results. ***bioRxiv***
 
