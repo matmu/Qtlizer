@@ -1,7 +1,7 @@
 # Qtlizer: comprehensive QTL annotation of GWAS results
 [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?hashtags=Qtlizer&url=https://www.biorxiv.org/content/10.1101/495903v2&screen_name=_matmu)
 
-This package offers the possibility to send requests to **Qtlizer**. **Qtlizer** annotates lists of common small variants and genes in humans with associated changes in gene expression using the most comprehensive database of published quantitative trait loci (QTLs) to date.
+This package offers the possibility to query the **Qtlizer** web server. **Qtlizer** annotates lists of common small variants and genes in humans with associated changes in gene expression using the most comprehensive database of published quantitative trait loci (QTLs) to date.
 
 The user can use the `get_qtls()` function to make requests to **Qtilzer** and receives a data frame with the requested data. The queries are made with the Genehopper REST API (http://genehopper.de/rest) which can also be used directly by the user.
 
@@ -11,6 +11,8 @@ There is also a **Qtlizer GUI** that can be used (http://genehopper.de/qtlizer).
 ```R
 devtools::install_github('matmu/Qtlizer')
 ```
+
+**Please note**: A internet connection is required (HTTP port: 80) in order to install and use the package.
 
 ## Usage
 Simply call the function `get_qtls()` with your query as argument. The output will be returned as a data frame.
