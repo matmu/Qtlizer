@@ -64,6 +64,10 @@ get_qtls <- function(query, r2 = 0.8, max_terms = 10){
     s <- apply(y,1,paste,collapse=" ")
     
     if (!curl::has_internet()) {warning("no internet connection detected....")}
-    return(lapply(s, mkQuery, r2 = r2))
+    
+    res = lapply(s, mkQuery, r2 = r2)
+    res = df[[1]]
+    
+    return(res)
 
 }
