@@ -1,2 +1,5 @@
 Changes in version 0.99.0 (2019-06-28)
 + Submitted to Bioconductor
+
+Changes in version 0.99.1 (2019-08-12)
++ Added .Rhistory to .gitignore
