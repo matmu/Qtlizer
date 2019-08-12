@@ -21,7 +21,7 @@ get_qtls <- function(query, r2 = 0.8, max_terms = 10){
         
         url <- paste('http://genehopper.de/rest/qtlizer?q=', gsub("\\s+", ",", q), 
             "&corr=", r2, "&ld_method=", ld_method, sep="")
-        message("Retrieving QTL information from Qtlizer… ")
+        message("Retrieving QTL information from Qtlizer...")
         response <- httr::POST(url)
         result <- httr::content(response)
     
@@ -63,7 +63,7 @@ get_qtls <- function(query, r2 = 0.8, max_terms = 10){
     y <- matrix(spltq,  ncol=min(max_terms, length(spltq)))
     s <- apply(y,1,paste,collapse=" ")
     
-    if (!curl::has_internet()) {warning("no internet connection detected....")}
+    if (!curl::has_internet()) {warning("no internet connection detected...")}
     
     res = lapply(s, mkQuery, r2 = r2)
     res = res[[1]]
