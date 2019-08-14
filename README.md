@@ -33,6 +33,27 @@ Accepted query terms are variant and gene identifiers of the form:
 + Gene symbol consisting of letters and numbers according to  [https://www.genenames.org/about/guidelines/]( https://www.genenames.org/about/guidelines/)
 
 
+There are also various parameters that can be specified in addition to the query:
+
++ corr: Linkage disequilibrium based on 1000Genomes Phase 3 European. Optional value between 0.1 and 1. Default 	value is 0.8.
+
+	```R
+	get_qtls("rs4284742", 0.6)
+	```
+
++ max_terms: Number of queries made at a time. The default value is 5. It is recommended to not set the value higher than 5. 
+
+
+	```R
+	get_qtls("rs4284742", max_terms = 4)
+	```
+
++ ld_method: There are two methods. Default method is "r2". The other opportunity is to use "dprime".
+
+	```R
+	get_qtls("rs4284742", ld_method = "dprime")
+	```
+
 ### Column meta information
 The column description of the received dataframe can be accessed by calling:
 

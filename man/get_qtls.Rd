@@ -4,16 +4,19 @@
 \alias{get_qtls}
 \title{Query Qtlizer}
 \usage{
-get_qtls(query, r2 = 0.8, max_terms = 10)
+get_qtls(query, corr = 0.8, max_terms = 5, ld_method = "r2")
 }
 \arguments{
 \item{query}{The qtlizer query. Can either be a single string or a vector.}
 
-\item{r2}{Linkage disequilibrium based on 1000Genomes Phase 3 European.
-Optional value between 0 and 1. Default value is 0.8.}
+\item{corr}{Linkage disequilibrium based on 1000Genomes Phase 3 European.
+Optional value between 0.1 and 1. Default value is 0.8.}
 
-\item{max_terms}{Number of queries made at a time.  The default value is 10. 
-It is recommended to not set the value higher than 10.}
+\item{max_terms}{Number of queries made at a time.  The default value is 5. 
+It is recommended to not set the value higher than 5.}
+
+\item{ld_method}{There are two methods. Default method is "r2". 
+The other opportunity is to use "dprime".}
 }
 \value{
 Data frame with response.
@@ -26,4 +29,5 @@ get_qtls("rs4284742")
 get_qtls(c("rs4284742", "DEFA1"))
 get_qtls("rs4284742", 0.6)
 get_qtls("rs4284742", max_terms = 4)
+get_qtls("rs4284742", ld_method = "dprime")
 }

@@ -30,14 +30,14 @@ library(Qtlizer)
 One can call the get_qtls function with a single query: 
 ```{r}
 # Call get_qtls with a single query
-get_qtls('rs4284742')
+get_qtls("rs4284742")
 ```
 
 It is also possible to call the function 
 with more than one query and a single string:
 ```{r}
 # Call get_qtls with serveral queries
-get_qtls('rs4284742, rs2070901')
+ddf = get_qtls("rs4284742, rs2070901")
 ```
 
 Another possibility is to make a single request with a vector of queries:
@@ -48,16 +48,24 @@ df = get_qtls(c("rs4284742", "DEFA1"))
 
 If many requests are to be made, 
 a maximum of max_terms queries are made at once. 
-This term can be changed manually (default is 10):
+This term can be changed manually (default is 5):
 ```{r}
-# Get meta info
+# Change the maximum queries made at a time
 df2 = get_qtls(c("rs4284742", "DEFA1"), max_terms = 1)
+```
+
+There are also two more parameters that can be used. The ld_method can be
+changed from the standard value "r2" to "dprime". These are the only two possible methods. The linkage disequilibrium (parameter is called corr) can be set between 0.1 and 1. 
+```{r}
+# Use parameters corr and ld_method
+df2 = get_qtls(c("rs4284742", "DEFA1"), corr = 0.6, ld_method = "dprime")
 ```
 
 There is meta info added to the returned data frame which can be accessed:
 ```{r}
 # Get meta info
-attributes(get_qtls("rs4284742")[[1]])
+df = get_qtls("rs4284742")
+comment(df)
 ```
 #Output of Session Info
 Here is the output of ```sessionInfo()``` on the system 
