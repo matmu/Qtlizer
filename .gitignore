@@ -35,3 +35,4 @@ Meta
 .tm_properties
 test.R
 .RData
+*.Rhistory
