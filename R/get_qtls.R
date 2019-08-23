@@ -16,7 +16,7 @@
 #'get_qtls("rs4284742", max_terms = 4)
 #'get_qtls("rs4284742", ld_method = "dprime")
 #'@export
-get_qtls <- function(query, corr = 0.8, max_terms = 5, ld_method = "r2"){
+get_qtls <- function(query, corr = null, max_terms = 5, ld_method = "r2"){
     {if (!curl::has_internet()) 
         stop("no internet connection detected...")
     
