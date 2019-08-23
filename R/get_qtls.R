@@ -2,7 +2,7 @@
 #'
 #'@description Queries Qtlizer database for expression quantitative trait loci (eQTLs) in human.
 #'
-#'@param query The qtlizer query. Can either be a single string or a vector.
+#'@param query The query. Can either be a single string or a vector. Qtlizer allows to query both variants (Rsid, ref_version:chr:pos) and genes (Symbol consisting of letters and numbers according to the HGNC guidelines).
 #'@param corr Linkage disequilibrium based on 1000Genomes Phase 3 European.
 #' Optional value between 0.1 and 1. Default value is 0.8. 
 #'@param max_terms Number of queries made at a time. The default value is 5. 
