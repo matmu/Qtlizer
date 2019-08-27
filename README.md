@@ -32,38 +32,29 @@ Accepted query terms are variant and gene identifiers of the form:
 + Gene symbol consisting of letters and numbers according to  [https://www.genenames.org/about/guidelines/]( https://www.genenames.org/about/guidelines/)
 
 
-### More parameters
-There are also various parameters that can be specified in addition to the query:
-
-+ corr: Linkage disequilibrium based on 1000Genomes Phase 3 European. Optional value between 0.1 and 1. Default 	value is 0.8.
+### Optional parameters
++ corr: Correlation threshold based on linkage disequilibrium (LD) calculated from the 1000 Genomes Phase 3 European dataset. Optional value between 0 and 1. Default value is NA.
++ ld_method: Method to calculate correlation. Valid values are either "r2" (default) or "dprime".
 
 	```R
-	get_qtls("rs4284742", corr = 0.6)
+	get_qtls("rs4284742", corr = 0.6, ld_method="r2")
+	```
+
++ return_obj: Determinse the format of the result. Value "dataframe" (default) returns a dara frame whereas "grange" returns a ```GenomicRanges::GRanges``` object. 
++ ref_version: If output is a GRange object, the version of the reference genome is also considered. Accepted reference genome versions are "hg19" (default) or "hg38".
+
+	```R
+	get_qtls("rs4284742", return_obj = "grange", ref_version = "hg38")
 	```
 
 + max_terms: Number of queries made at a time. The default value is 5. It is recommended to not set the value higher than 5. 
-
 
 	```R
 	get_qtls("rs4284742", max_terms = 4)
 	```
 
-+ ld_method: There are two methods. Default method is "r2". The other opportunity is to use "dprime".
-
-
-	```R
-	get_qtls("rs4284742", ld_method = "dprime")
-	```
-
-If the required output format is GenomicRanges::GRanges object the parameter `return_obj` has to be set on "grange". If GRange is set, the version of the reference genome can also be set, either to "hg_19" (default) or to "hg_38".
-
-
-```R
-get_qtls("rs4284742", return_obj = "grange", ref_version = "hg38")
-```
-
-### Column meta information
-The column description of the received data frame can be accessed by calling:
+### Column descriptions
+Column description of the received data frame can be accessed by calling:
 
 ```R
 df = get_qtls("rs4284742")
