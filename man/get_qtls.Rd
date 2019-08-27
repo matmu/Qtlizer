@@ -38,5 +38,4 @@ get_qtls(c("rs4284742", "DEFA1"))
 get_qtls(c("rs4284742,DEFA1"))
 get_qtls("rs4284742", return_obj="grange", ref_version="hg38")
 get_qtls("rs4284742", corr=0.6)
-get_qtls("rs4284742", corr=0.2, ld_method = "dprime")
 }

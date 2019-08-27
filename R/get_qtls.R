@@ -20,7 +20,6 @@
 #'get_qtls(c("rs4284742,DEFA1"))
 #'get_qtls("rs4284742", return_obj="grange", ref_version="hg38")
 #'get_qtls("rs4284742", corr=0.6)
-#'get_qtls("rs4284742", corr=0.2, ld_method = "dprime")
 #'@export
 get_qtls = function(query, corr = NA, max_terms = 5, ld_method = "r2", 
                     ref_version = "hg19", return_obj = "dataframe"){
