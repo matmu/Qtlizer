@@ -24,6 +24,7 @@ Common seperators (space, comma, space + comma, ...) are accepted. It is also po
 get_qtls(c("rs4284742", "DEFA1"))
 ```
 
+### Accepted query terms
 Accepted query terms are variant and gene identifiers of the form: 
 
 + Rsid : rs + number e.g. "rs4284742"
@@ -31,6 +32,7 @@ Accepted query terms are variant and gene identifiers of the form:
 + Gene symbol consisting of letters and numbers according to  [https://www.genenames.org/about/guidelines/]( https://www.genenames.org/about/guidelines/)
 
 
+### More parameters
 There are also various parameters that can be specified in addition to the query:
 
 + corr: Linkage disequilibrium based on 1000Genomes Phase 3 European. Optional value between 0.1 and 1. Default 	value is 0.8.
