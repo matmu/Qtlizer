@@ -4,7 +4,8 @@
 \alias{get_qtls}
 \title{Query Qtlizer}
 \usage{
-get_qtls(query, corr = 0.8, max_terms = 5, ld_method = "r2")
+get_qtls(query, corr = 0.8, max_terms = 5, ld_method = "r2",
+  ref_version = "hg19", return_obj = "dataframe")
 }
 \arguments{
 \item{query}{The qtlizer query. Can either be a single string or a vector.}
@@ -17,6 +18,13 @@ It is recommended to not set the value higher than 5.}
 
 \item{ld_method}{There are two methods. Default method is "r2". 
 The other opportunity is to use "dprime".}
+
+\item{ref_version}{Two possible versions to use hg19 or hg38. Default value
+is hg19.}
+
+\item{return_obj}{The user can choose to get the output as a dataframe or 
+as a GRange object. The default value is the dataframe. If a GRange object is 
+wanted use return_obj = "grange".}
 }
 \value{
 Data frame with response.

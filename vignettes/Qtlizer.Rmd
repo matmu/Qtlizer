@@ -18,7 +18,8 @@ knitr::opts_chunk$set(
 
 #Introduction 
 The qtlizer package is written to provide the function of making a query 
-to Qtilzer and obtain the results as a data frame.
+to Qtilzer and obtain the results as a data frame. There is also the 
+possibility to get the results as a Grange object.
 
 #Add package to working directory
 ```{r setup}
@@ -55,7 +56,8 @@ df2 = get_qtls(c("rs4284742", "DEFA1"), max_terms = 1)
 ```
 
 There are also two more parameters that can be used. The ld_method can be
-changed from the standard value "r2" to "dprime". These are the only two possible methods. The linkage disequilibrium (parameter is called corr) can be set between 0.1 and 1. 
+changed from the standard value "r2" to "dprime". These are the only two possible methods. 
+The linkage disequilibrium (parameter is called corr) can be set between 0.1 and 1. 
 ```{r}
 # Use parameters corr and ld_method
 df2 = get_qtls(c("rs4284742", "DEFA1"), corr = 0.6, ld_method = "dprime")
@@ -67,6 +69,15 @@ There is meta info added to the returned data frame which can be accessed:
 df = get_qtls("rs4284742")
 comment(df)
 ```
+
+If the retained object should be a GenomicRanges::GRanges object than another 
+parameter can be used. First set parameter return_obj on "grange". Then the 
+reference position can either be the standard value "hg_19" or "hg_38".
+```{r}
+#return result as GRange object with ref_version hg_38
+g = get_qtls("rs4284742", return_obj = "grange", ref_version = "hg38")
+```
+
 #Output of Session Info
 Here is the output of ```sessionInfo()``` on the system 
 on which this document was compiled: 

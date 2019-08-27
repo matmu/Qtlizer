@@ -50,9 +50,20 @@ There are also various parameters that can be specified in addition to the query
 
 + ld_method: There are two methods. Default method is "r2". The other opportunity is to use "dprime".
 
+
 	```R
 	get_qtls("rs4284742", ld_method = "dprime")
 	```
+
+If the retained object should be a GenomicRanges::GRanges object than another 
+parameter can be used. First set parameter return_obj on "grange". Then the 
+reference position can either be the standard value "hg_19" or "hg_38".
+
+
+
+```R
+get_qtls("rs4284742", return_obj = "grange", ref_version = "hg38")
+```
 
 ### Column meta information
 The column description of the received dataframe can be accessed by calling:

@@ -9,6 +9,11 @@
 #'It is recommended to not set the value higher than 5.
 #'@param ld_method There are two methods. Default method is "r2". 
 #'The other opportunity is to use "dprime".
+#'@param ref_version Two possible versions to use hg19 or hg38. Default value
+#'is hg19.
+#'@param return_obj The user can choose to get the output as a dataframe or 
+#'as a GRange object. The default value is the dataframe. If a GRange object is 
+#'wanted use return_obj = "grange". 
 #'@return Data frame with response.
 #'@examples get_qtls("rs4284742")
 #'get_qtls(c("rs4284742", "DEFA1"))
@@ -16,7 +21,8 @@
 #'get_qtls("rs4284742", max_terms = 4)
 #'get_qtls("rs4284742", ld_method = "dprime")
 #'@export
-get_qtls <- function(query, corr = 0.8, max_terms = 5, ld_method = "r2"){
+get_qtls <- function(query, corr = 0.8, max_terms = 5, ld_method = "r2", 
+                     ref_version = "hg19", return_obj = "dataframe"){
     {if (!curl::has_internet()) 
         stop("no internet connection detected...")
     
@@ -52,7 +58,31 @@ get_qtls <- function(query, corr = 0.8, max_terms = 5, ld_method = "r2"){
     }
     if(!is.null(nrow(res))) message(nrow(res), " datapoints received")
     message("Done.")
-    return(res)
+    
+    if (return_obj %in% "grange"){
+      if(ref_version %in% "hg19") {
+        rowtokeep = complete.cases(res$var_pos_hg19) #check for NA values
+        if(!is.null(rowtokeep)) {
+          resWithoutNA = res[rowtokeep,]
+          if (nrow(resWithoutNA) < nrow(res)) message("Not all results in GRange object included due to NA values. 
+                                                 Please use the ref_versioin = hg38 option or return a dataframe to obtain all results.")
+        } else {
+          resWithoutNA = res
+        }
+        gres = GenomicRanges::makeGRangesFromDataFrame(resWithoutNA,start.field = "var_pos_hg19", end.field = "var_pos_hg19", 
+                                                       seqnames.field = "chr", keep.extra.columns = TRUE)
+        
+      } else {
+        gres = GenomicRanges::makeGRangesFromDataFrame(res,start.field = "var_pos_hg38", end.field = "var_pos_hg38", 
+                                                       seqnames.field = "chr", keep.extra.columns = TRUE)
+      }
+      GenomicRanges::strand(gres) <- "+" 
+      comment(gres) = comment(res) 
+      return(gres)
+     
+    } else {
+      return(res)
+    }
     }
 }
 
