@@ -3,7 +3,7 @@ title: "Qtlizer"
 output: BiocStyle::html_document
 author: "Julia Remes"
 vignette: >
-    %\VignetteIndexEntry{qtlizer}
+    %\VignetteIndexEntry{Qtlizer}
     %\VignetteEngine{knitr::rmarkdown}
     %\VignetteEncoding{UTF-8}
 ---
@@ -17,69 +17,54 @@ knitr::opts_chunk$set(
 ```
 
 #Introduction 
-The qtlizer package is written to provide the function of making a query 
-to Qtilzer and obtain the results as a data frame. There is also the 
-possibility to get the results as a Grange object.
+This package provide access to the Qtlizer database of quantitative trait loci (QTLs) in human. Accepted query terms are variants and genes. The return type is either a data frame or a GRange object.
+
 
 #Add package to working directory
 ```{r setup}
 library(Qtlizer)
 ```
 
-
 #Example function calls
-One can call the get_qtls function with a single query: 
+The Qtlizer database can be queried  with the function `get_qtls`: 
 ```{r}
-# Call get_qtls with a single query
+# Call get_qtls with a variant as a single query term
 get_qtls("rs4284742")
 ```
 
-It is also possible to call the function 
-with more than one query and a single string:
+Multiple terms can be passed in a single string, each term separated by comma, whitespace or both:
 ```{r}
 # Call get_qtls with serveral queries
 ddf = get_qtls("rs4284742, rs2070901")
 ```
 
-Another possibility is to make a single request with a vector of queries:
+Alternatively, terms can be passed as a vector:
 ```{r}
 # Call get_qtls with serveral queries
 df = get_qtls(c("rs4284742", "DEFA1"))
 ```
 
-If many requests are to be made, 
-a maximum of max_terms queries are made at once. 
-This term can be changed manually (default is 5):
-```{r}
-# Change the maximum queries made at a time
-df2 = get_qtls(c("rs4284742", "DEFA1"), max_terms = 1)
-```
-
-There are also two more parameters that can be used. The ld_method can be
-changed from the standard value "r2" to "dprime". These are the only two possible methods. 
-The linkage disequilibrium (parameter is called corr) can be set between 0.1 and 1. 
+Input variants can be enriched by variants in linkage disequilibrium (LD). The correlation method to be used can be set with `ld_method`. Default is "r2", alternatively "dprime" can be used. The correlation threshold, above which other correlated variants should be included, can be set with between `corr` and ranges between 0.1 and 1. 
 ```{r}
 # Use parameters corr and ld_method
 df2 = get_qtls(c("rs4284742", "DEFA1"), corr = 0.6, ld_method = "dprime")
 ```
 
-There is meta info added to the returned data frame which can be accessed:
+Also, column descriptions can be viewed:
 ```{r}
 # Get meta info
 df = get_qtls("rs4284742")
 comment(df)
 ```
 
-If the retained object should be a GenomicRanges::GRanges object than another 
-parameter can be used. First set parameter return_obj on "grange". Then the 
-reference position can either be the standard value "hg_19" or "hg_38".
+To return the results as GenomicRanges::GRanges object, `return_obj` is set to "grange". If `return_obj` is set to "grange", parameter `ref_version` sets the reference version in which the GRange object is returned. Allowed values are "hg19" (Default).
 ```{r}
 #return result as GRange object with ref_version hg_38
 g = get_qtls("rs4284742", return_obj = "grange", ref_version = "hg38")
 ```
 
 #Output of Session Info
-Here is the output of ```sessionInfo()``` on the system 
+The output of ```sessionInfo()``` on the system 
 on which this document was compiled: 
 ```{r}
 sessionInfo()
