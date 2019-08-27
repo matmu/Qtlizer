@@ -6,7 +6,7 @@
 #' Qtlizer allows to query both variants (Rsid, ref_version:chr:pos) and
 #'  genes (Symbol consisting of letters and numbers according to the HGNC guidelines).
 #'@param corr Linkage disequilibrium based on 1000Genomes Phase 3 European.
-#' Optional value between 0.1 and 1. Default value is 0.8. 
+#' Optional value between 0.1 and 1. Default value is NA. 
 #'@param max_terms Number of queries made at a time. The default value is 5. 
 #'A large value can lead to a very large result set and a error by the database.
 #'@param ld_method There are two methods. Default method is "r2". 
@@ -24,7 +24,7 @@
 #'get_qtls("rs4284742", ld_method = "dprime")
 #'@export
 
-get_qtls <- function(query, corr = 0.8, max_terms = 5, ld_method = "r2", 
+get_qtls <- function(query, corr = NA, max_terms = 5, ld_method = "r2", 
                      ref_version = "hg19", return_obj = "dataframe"){
 
     {if (!curl::has_internet()) 
@@ -93,19 +93,30 @@ get_qtls <- function(query, corr = 0.8, max_terms = 5, ld_method = "r2",
 #'Actullaly makes the connection to server and returns results
 #'@param q The qtlizer query. Can either be a single string or a vector.
 #'@param corr Linkage disequilibrium based on 1000Genomes Phase 3 European.
-#' Optional value between 0.1 and 1. Default value is 0.8. 
+#' Optional value between 0.1 and 1. Default value is NA. 
 #'@param ld_method There are two methods. Default method is "r2". 
 #'The other opportunity is to use "dprime".
 #'@return Data frame with response.
-mkQuery <- function(q, corr = 0.8, ld_method = "r2"){
-  #ld_method <- "r2" # optional default
+mkQuery <- function(q, corr, ld_method){
   
-  url <- paste('http://genehopper.de/rest/qtlizer?q=', gsub("\\s+", ",", q), 
-               "&corr=", corr, "&ld_method=", ld_method, sep="")
-
+  
+  # Build URL
+  url <- paste0('http://genehopper.de/rest/qtlizer?q=', gsub("\\s+", ",", q))
+  
+  if(is.numeric(corr) && corr>=0 && corr<=1){
+    url = paste0(url, "&corr=", corr)
+  }
+  if(is.character(ld_method) && (ld_method == "r2" || corr == "dprime")){
+    url = paste0(url, "&ld_method=", ld_method)
+  }
+  
+  
+  # Send post request and retrieve response
   response <- httr::POST(url)
   result <- httr::content(response)
   
+  
+  # If response is fine convert to data frame
   a <- unlist(strsplit(result , "\n"))
   meta <- grep("^#", a, value = TRUE)
   data <- grep("^[^#]", a, value = TRUE)
