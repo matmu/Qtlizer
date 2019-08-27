@@ -41,7 +41,7 @@ get_qtls = function(query, corr = NA, max_terms = 5, ld_method = "r2",
   # Binning
   print(query)
   bins = vector_split(query, ceiling(length(query)/max_terms))
-  bins = stri_join_list(bins, sep = ",")
+  bins = stringi::stri_join_list(bins, sep = ",")
 
   
   # Communicate with database
