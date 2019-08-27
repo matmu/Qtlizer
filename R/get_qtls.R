@@ -44,7 +44,7 @@ get_qtls = function(query, corr = NA, max_terms = 5, ld_method = "r2",
   
   # Communicate with database
   message("Retrieving QTL information from Qtlizer...")
-  res = lapply(bins, mkQuery, corr = corr, ld_method = ld_method)
+  res = lapply(bins, communicate, corr = corr, ld_method = ld_method)
   res = do.call(rbind, res)
   
   if(!is.null(res)){
@@ -103,7 +103,7 @@ get_qtls = function(query, corr = NA, max_terms = 5, ld_method = "r2",
 #'@param ld_method There are two methods. Default method is "r2". 
 #'The other opportunity is to use "dprime".
 #'@return Data frame with results.
-mkQuery = function(q, corr, ld_method){
+communicate = function(q, corr, ld_method){
   
   
   # Build URL
