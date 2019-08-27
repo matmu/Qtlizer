@@ -15,3 +15,6 @@ Changes in version 0.99.7 (2019-08-27)
 
 Changes in version 0.99.8 (2019-08-27)
 + Additional HTTP error handling
+
+Changes in version 0.99.9 (2019-08-27)
++ Bugfixes, error handling
