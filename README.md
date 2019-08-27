@@ -13,7 +13,7 @@ devtools::install_github('matmu/Qtlizer')
 **Please note**: A valid internet connection (HTTP port: 80) is required in order to install and use the package.
 
 ## Usage
-Simply call the function `get_qtls()` function to make requests to **Qtilzer**. The function utilizes a REST API (http://genehopper.de/rest) to query the annotation database. The QTL results will be returned as a `data frame` or as `GenomicRanges::GRanges` object.
+Simply call the function `get_qtls()` function to make requests to **Qtilzer**. The function utilizes a REST API (http://genehopper.de/rest) to query the annotation database. The QTL results will be returned as data frame or as `GenomicRanges::GRanges` object.
 
 ```R
 get_qtls('rs4284742 DEFA1')
