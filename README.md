@@ -3,15 +3,12 @@
 
 
 [Introduction](#Introduction)\
-[Installation](#Installation)
-[Usage](#Usage)
-[Try out online](#Try-out-online)
-[Authors](#Authors)
-[Citation](#Citation)
+[Installation](#Installation)\
+[Usage](#Usage)\
+[Try out online](#Try-out-online)\
+[Authors](#Authors)\
+[Citation](#Citation)\
 [License](#License)
-
-This line is also a separate paragraph, but...
-This line is only separated by a single newline, so it's a separate line in the *same paragraph*.
 
 
 ## Introduction
@@ -19,12 +16,14 @@ This **R** package provides access to the **Qtlizer** web server. **Qtlizer** an
 
 Alternatively, the **Qtlizer** can be accessed by using a web-based GUI (http://genehopper.de/qtlizer). More information about usage and available datasets can be found at http://genehopper.de/help#qtlizer_docu.
 
+
 ## Installation
 ```R
 devtools::install_github('matmu/Qtlizer')
 ```
 
 **Please note**: A valid internet connection (HTTP port: 80) is required in order to install and use the package.
+
 
 ## Usage
 Simply call the function `get_qtls()` function to make requests to **Qtilzer**. The function utilizes a REST API (http://genehopper.de/rest) to query the annotation database. The QTL results will be returned as data frame or as `GenomicRanges::GRanges` object.
@@ -37,6 +36,7 @@ Common seperators (space, comma, space + comma, ...) are accepted. It is also po
 ```R
 get_qtls(c("rs4284742", "DEFA1"))
 ```
+
 
 ### Accepted query terms
 Accepted query terms are variant and gene identifiers of the form: 
