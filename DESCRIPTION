@@ -21,4 +21,4 @@ Suggests: BiocStyle,
     rmarkdown
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
-biocViews: GenomeWideAssociation, SNP, Genetics 
+biocViews: GenomeWideAssociation, SNP, Genetics, LinkageDisequilibrium
