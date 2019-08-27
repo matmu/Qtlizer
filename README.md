@@ -1,26 +1,24 @@
 # Qtlizer: comprehensive QTL annotation of GWAS results
 [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?hashtags=Qtlizer&url=https://www.biorxiv.org/content/10.1101/495903v2&screen_name=_matmu)
 
-This package offers the possibility to query the **Qtlizer** web server. **Qtlizer** annotates lists of common small variants (mainly SNPs) and genes in humans with associated changes in gene expression using the most comprehensive database of published quantitative trait loci (QTLs) to date.
+This **R** package provides access to the **Qtlizer** web server. **Qtlizer** annotates lists of common small variants (mainly SNPs) and genes in humans with associated changes in gene expression using the most comprehensive database of published quantitative trait loci (QTLs).
 
-The user can use the `get_qtls()` function to make requests to **Qtilzer** and receives a data frame with the requested data. The queries are made with the Genehopper REST API (http://genehopper.de/rest) which can also be used directly by the user.
-
-There is also a **Qtlizer GUI** that can be used (http://genehopper.de/qtlizer). More information about **Qtlizer** and detailed documentation about usage and available datasets can be found at http://genehopper.de/help#qtlizer_docu .
+Alternatively, the **Qtlizer** database can also be queried by using a web-based GUI (http://genehopper.de/qtlizer). More information about **Qtlizer** and detailed documentation about usage and available datasets can be found at http://genehopper.de/help#qtlizer_docu .
 
 ## Installation
 ```R
 devtools::install_github('matmu/Qtlizer')
 ```
 
-**Please note**: A internet connection is required (HTTP port: 80) in order to install and use the package.
+**Please note**: A valid internet connection (HTTP port: 80) is required in order to install and use the package.
 
 ## Usage
-Simply call the function `get_qtls()` with your query as argument. The output will be returned as a data frame.
+Simply call the function `get_qtls()` function to make requests to **Qtilzer**. The function utilizes a REST API (http://genehopper.de/rest) to query the annotation database. The QTL results will be returned as a `data frame` or as `GenomicRanges::GRanges` object.
 
 ```R
 get_qtls('rs4284742 DEFA1')
 ```
-All kind of standard seperators (space, comma, space + comma, ...) are accepted. It is also possible to pass your query with a vector: 
+Common seperators (space, comma, space + comma, ...) are accepted. It is also possible to pass your query with a vector: 
 
 ```R
 get_qtls(c("rs4284742", "DEFA1"))
@@ -38,7 +36,7 @@ There are also various parameters that can be specified in addition to the query
 + corr: Linkage disequilibrium based on 1000Genomes Phase 3 European. Optional value between 0.1 and 1. Default 	value is 0.8.
 
 	```R
-	get_qtls("rs4284742", 0.6)
+	get_qtls("rs4284742", corr = 0.6)
 	```
 
 + max_terms: Number of queries made at a time. The default value is 5. It is recommended to not set the value higher than 5. 
@@ -55,10 +53,7 @@ There are also various parameters that can be specified in addition to the query
 	get_qtls("rs4284742", ld_method = "dprime")
 	```
 
-If the retained object should be a GenomicRanges::GRanges object than another 
-parameter can be used. First set parameter return_obj on "grange". Then the 
-reference position can either be the standard value "hg_19" or "hg_38".
-
+If the required output format is GenomicRanges::GRanges object the parameter `return_obj` has to be set on "grange". If GRange is set, the version of the reference genome can also be set, either to "hg_19" (default) or to "hg_38".
 
 
 ```R
@@ -66,7 +61,7 @@ get_qtls("rs4284742", return_obj = "grange", ref_version = "hg38")
 ```
 
 ### Column meta information
-The column description of the received dataframe can be accessed by calling:
+The column description of the received data frame can be accessed by calling:
 
 ```R
 df = get_qtls("rs4284742")
