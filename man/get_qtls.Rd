@@ -8,13 +8,15 @@ get_qtls(query, corr = 0.8, max_terms = 5, ld_method = "r2",
   ref_version = "hg19", return_obj = "dataframe")
 }
 \arguments{
-\item{query}{The qtlizer query. Can either be a single string or a vector.}
+\item{query}{The query. Can either be a single string or a vector.
+Qtlizer allows to query both variants (Rsid, ref_version:chr:pos) and
+ genes (Symbol consisting of letters and numbers according to the HGNC guidelines).}
 
 \item{corr}{Linkage disequilibrium based on 1000Genomes Phase 3 European.
 Optional value between 0.1 and 1. Default value is 0.8.}
 
-\item{max_terms}{Number of queries made at a time.  The default value is 5. 
-It is recommended to not set the value higher than 5.}
+\item{max_terms}{Number of queries made at a time. The default value is 5. 
+A large value can lead to a very large result set and a error by the database.}
 
 \item{ld_method}{There are two methods. Default method is "r2". 
 The other opportunity is to use "dprime".}
@@ -30,7 +32,7 @@ wanted use return_obj = "grange".}
 Data frame with response.
 }
 \description{
-Makes a query at Qtlizer and returns results as data frame.
+Queries Qtlizer database for expression quantitative trait loci (eQTLs) in human.
 }
 \examples{
 get_qtls("rs4284742")

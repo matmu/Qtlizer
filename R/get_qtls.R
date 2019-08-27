@@ -1,12 +1,14 @@
 #'Query Qtlizer
 #'
-#'@description Makes a query at Qtlizer and returns results as data frame.
+#'@description Queries Qtlizer database for expression quantitative trait loci (eQTLs) in human.
 #'
-#'@param query The qtlizer query. Can either be a single string or a vector.
+#'@param query The query. Can either be a single string or a vector.
+#' Qtlizer allows to query both variants (Rsid, ref_version:chr:pos) and
+#'  genes (Symbol consisting of letters and numbers according to the HGNC guidelines).
 #'@param corr Linkage disequilibrium based on 1000Genomes Phase 3 European.
 #' Optional value between 0.1 and 1. Default value is 0.8. 
-#'@param max_terms Number of queries made at a time.  The default value is 5. 
-#'It is recommended to not set the value higher than 5.
+#'@param max_terms Number of queries made at a time. The default value is 5. 
+#'A large value can lead to a very large result set and a error by the database.
 #'@param ld_method There are two methods. Default method is "r2". 
 #'The other opportunity is to use "dprime".
 #'@param ref_version Two possible versions to use hg19 or hg38. Default value
@@ -21,8 +23,10 @@
 #'get_qtls("rs4284742", max_terms = 4)
 #'get_qtls("rs4284742", ld_method = "dprime")
 #'@export
+
 get_qtls <- function(query, corr = 0.8, max_terms = 5, ld_method = "r2", 
                      ref_version = "hg19", return_obj = "dataframe"){
+
     {if (!curl::has_internet()) 
         stop("no internet connection detected...")
     
