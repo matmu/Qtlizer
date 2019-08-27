@@ -111,11 +111,11 @@ communicate = function(q, corr, ld_method){
   if(is.numeric(corr) && corr>=0 && corr<=1){
     url = paste0(url, "&corr=", round(corr, digits=2))
     
-    if(is.character(ld_method) && (ld_method == "r2" || corr == "dprime")){
+    if(is.character(ld_method) && (ld_method == "r2" || ld_method == "dprime")){
       url = paste0(url, "&ld_method=", ld_method)
     }
   }
-  
+
   
   # Send post request and retrieve response
   response = httr::POST(url)
