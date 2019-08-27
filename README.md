@@ -76,11 +76,11 @@ comment(df)
 ```
 
 ## Try out online
-If you want to try out the R package online, there is an example **Google Colaboratory project** at
+If you want to try out the R package online, there is an example **Google Colaboratory** project at
 
 https://colab.research.google.com/drive/1i1sjQHCjaw2wYzVBnXQ9iaghnk-jSU95#scrollTo=5Hi6sCe7SPFb
 
-The link leads you to the project and allows read access. To run the project, make a private copy or open the project in playground mode and sign in to Google. 
+To run the project, make a private copy or open the project in playground mode and sign in to Google. 
 
 
 ## Authors
