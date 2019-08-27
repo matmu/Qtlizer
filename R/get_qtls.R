@@ -1,19 +1,24 @@
 #'Query Qtlizer
 #'
-#'@description Query Qtlizer database for expression quantitative trait loci (eQTLs) in human.
+#'@description Query Qtlizer database for expression quantitative 
+#'trait loci (eQTLs) in human.
 #'
-#'@param query The query consists of search terms and can be a single string or a vector.
-#' Qtlizer allows to query both variants (Rsid, ref_version:chr:pos) and
-#' genes (Symbol consisting of letters and numbers according to the HGNC guidelines). Minimum allowed term length is 2.
-#'@param corr Linkage disequilibrium based on 1000 Genomes Phase 3 European. If this optional value between 0 and 1 is set, 
-#'the input variants are enriched for proxy variants passing the threshold. Default value is NA. 
+#'@param query The query consists of search terms and can be a single 
+#'string or a vector. Qtlizer allows to query both variants 
+#'(Rsid, ref_version:chr:pos) and genes (Symbol consisting of letters 
+#'and numbers according to the HGNC guidelines). Minimum allowed term length is 2.
+#'@param corr Linkage disequilibrium based on 1000 Genomes Phase 3 European. 
+#'If this optional value between 0 and 1 is set, 
+#'the input variants are enriched for proxy variants passing the threshold. 
+#'Default value is NA. 
 #'@param max_terms Number of terms in a single HTTP request. Default value is 5. 
 #'A large value can lead to a very large result set and a error by the database.
 #'@param ld_method There are two methods available: "r2" (default) and "dprime".
-#'@param ref_version Two possible versions are supported: hg19 (GRCh37) or hg38 (GRCh38). Default value
-#'is "hg19". This argument is only considered if a GRange is returned.
-#'@param return_obj The user can choose to get the QTL data to be returned as data frame or 
-#'as a GRange object. The default value is "dataframe".
+#'@param ref_version Two possible versions are supported: hg19 (GRCh37) or 
+#'hg38 (GRCh38). Default value is "hg19". 
+#'This argument is only considered if a GRange is returned.
+#'@param return_obj The user can choose to get the QTL data to be returned 
+#'as data frame or as a GRange object. The default value is "dataframe".
 #'@return Data frame or GRange object with QTL data.
 #'@examples get_qtls("rs4284742")
 #'get_qtls(c("rs4284742", "DEFA1"))
@@ -122,13 +127,18 @@ communicate = function(q, corr, ld_method){
   result = httr::content(response)
   if(!is.character(result)){
     
-    # title = rvest::html_text(rvest::html_nodes(result, "title"))
-    # h1 = rvest::html_text(rvest::html_nodes(result, "h1"))
-    # mess = rvest::html_text(rvest::html_nodes(result, "p"))
-    # warning(paste(title, h1, mess, sep="\n"))
+    Sys.sleep(5)
     
-    stop("Web server seems to be down. Try again later!")
-    return()
+    response = httr::POST(url)
+    result = httr::content(response)
+    
+    if(!is.character(result)){
+      # title = rvest::html_text(rvest::html_nodes(result, "title"))
+      # h1 = rvest::html_text(rvest::html_nodes(result, "h1"))
+      # mess = rvest::html_text(rvest::html_nodes(result, "p"))
+      # warning(paste(title, h1, mess, sep="\n"))
+      stop("Web server seems to be down. Try again later!")
+    }
   }
   result = unlist(strsplit(result , "\n"))
   
