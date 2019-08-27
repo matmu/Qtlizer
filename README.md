@@ -3,7 +3,7 @@
 
 This **R** package provides access to the **Qtlizer** web server. **Qtlizer** annotates lists of common small variants (mainly SNPs) and genes in humans with associated changes in gene expression using the most comprehensive database of published quantitative trait loci (QTLs).
 
-Alternatively, the **Qtlizer** database can also be queried by using a web-based GUI (http://genehopper.de/qtlizer). More information about **Qtlizer** and detailed documentation about usage and available datasets can be found at http://genehopper.de/help#qtlizer_docu .
+Alternatively, the **Qtlizer** can be accessed by using a web-based GUI (http://genehopper.de/qtlizer). More information about usage and available datasets can be found at http://genehopper.de/help#qtlizer_docu.
 
 ## Installation
 ```R
