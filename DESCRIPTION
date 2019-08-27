@@ -1,6 +1,6 @@
 Package: Qtlizer
 Title: ‚Qtlizer‘ for Bioconductor
-Version: 0.99.5
+Version: 0.99.6
 Authors@R: c(person("Matthias", "Munz", role = c("aut", "cre"), 
                 email = "m.munz@uni-luebeck.de"),
               person("Julia", "Remes", role = "aut")
@@ -13,7 +13,8 @@ LazyData: true
 Imports: 
     httr,
     curl,
-    GenomicRanges
+    GenomicRanges,
+    stringi
 Suggests: BiocStyle,
     testthat,
     knitr,
