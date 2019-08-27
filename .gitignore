@@ -39,4 +39,4 @@ test.R
 vignettes/*.html
 vignettes/*.R
 vignettes/*.txt
-
+*.Rproj
