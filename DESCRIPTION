@@ -14,8 +14,7 @@ Imports:
     httr,
     curl,
     GenomicRanges,
-    stringi,
-    rvest
+    stringi
 Suggests: BiocStyle,
     testthat,
     knitr,

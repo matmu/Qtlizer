@@ -16,16 +16,16 @@ knitr::opts_chunk$set(
 )
 ```
 
-#Introduction 
+# Introduction 
 This package provide access to the Qtlizer database of quantitative trait loci (QTLs) in human. Accepted query terms are variants and genes. The return type is either a data frame or a GRange object.
 
 
-#Add package to working directory
+# Add package to working directory
 ```{r setup}
 library(Qtlizer)
 ```
 
-#Example function calls
+# Example function calls
 The Qtlizer database can be queried  with the function `get_qtls`: 
 ```{r}
 # Call get_qtls with a variant as a single query term
@@ -63,7 +63,7 @@ To return the results as GenomicRanges::GRanges object, `return_obj` is set to "
 g = get_qtls("rs4284742", return_obj = "grange", ref_version = "hg38")
 ```
 
-#Output of Session Info
+# Output of Session Info
 The output of ```sessionInfo()``` on the system 
 on which this document was compiled: 
 ```{r}

@@ -26,7 +26,7 @@ get_qtls = function(query, corr = NA, max_terms = 5, ld_method = "r2",
   
   # Check if there is an internet connection
   if (!curl::has_internet())
-    stop("no internet connection detected...")
+    stop("No internet connection detected...")
   
   
   # Split terms
@@ -122,11 +122,12 @@ communicate = function(q, corr, ld_method){
   result = httr::content(response)
   if(!is.character(result)){
     
-    title = rvest::html_text(rvest::html_nodes(result, "title"))
-    h1 = rvest::html_text(rvest::html_nodes(result, "h1"))
-    mess = rvest::html_text(rvest::html_nodes(result, "p"))
+    # title = rvest::html_text(rvest::html_nodes(result, "title"))
+    # h1 = rvest::html_text(rvest::html_nodes(result, "h1"))
+    # mess = rvest::html_text(rvest::html_nodes(result, "p"))
+    # warning(paste(title, h1, mess, sep="\n"))
     
-    warning(paste(title, h1, mess, sep="\n"))
+    stop("Web server seems to be down. Try again later!")
     return()
   }
   result = unlist(strsplit(result , "\n"))
