@@ -4,7 +4,7 @@
 #'
 #'@param query The query consists of search terms and can be a single string or a vector.
 #' Qtlizer allows to query both variants (Rsid, ref_version:chr:pos) and
-#'  genes (Symbol consisting of letters and numbers according to the HGNC guidelines). Minimum allowed term length is 2.
+#' genes (Symbol consisting of letters and numbers according to the HGNC guidelines). Minimum allowed term length is 2.
 #'@param corr Linkage disequilibrium based on 1000 Genomes Phase 3 European. If this optional value between 0 and 1 is set, 
 #'the input variants are enriched for proxy variants passing the threshold. Default value is NA. 
 #'@param max_terms Number of terms in a single HTTP request. Default value is 5. 
@@ -98,7 +98,7 @@ get_qtls = function(query, corr = NA, max_terms = 5, ld_method = "r2",
 
 #'URL building and request/response handling
 #'@param q The qtlizer query. Can either be a single string or a vector.
-#'@param corr Linkage disequilibrium based on 1000Genomes Phase 3 European.
+#'@param corr Linkage disequilibrium based on 1000 Genomes Phase 3 European.
 #' Optional value between 0 and 1. Default value is NA. 
 #'@param ld_method There are two methods. Default method is "r2". 
 #'The other opportunity is to use "dprime".
@@ -128,7 +128,7 @@ mkQuery = function(q, corr, ld_method){
     mess = rvest::html_text(rvest::html_nodes(result, "p"))
     
     warning(paste(title, h1, mess, sep="\n"))
-    return(NULL)
+    return()
   }
   result = unlist(strsplit(result , "\n"))
   
@@ -136,7 +136,7 @@ mkQuery = function(q, corr, ld_method){
   # Display error message from server
   if(is.null(grep("^#", result))){
     warning(result)
-    return(NULL)
+    return()
   }
   
   
@@ -148,7 +148,7 @@ mkQuery = function(q, corr, ld_method){
   # If no QTLs were found
   if(length(data)-1 <= 0) {
     message("No QTLs found")
-    return(NULL)
+    return()
   }
   
   

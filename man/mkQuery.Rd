@@ -2,22 +2,22 @@
 % Please edit documentation in R/get_qtls.R
 \name{mkQuery}
 \alias{mkQuery}
-\title{Actullaly makes the connection to server and returns results}
+\title{URL building and request/response handling}
 \usage{
-mkQuery(q, corr = 0.8, ld_method = "r2")
+mkQuery(q, corr, ld_method)
 }
 \arguments{
 \item{q}{The qtlizer query. Can either be a single string or a vector.}
 
-\item{corr}{Linkage disequilibrium based on 1000Genomes Phase 3 European.
-Optional value between 0.1 and 1. Default value is 0.8.}
+\item{corr}{Linkage disequilibrium based on 1000 Genomes Phase 3 European.
+Optional value between 0 and 1. Default value is NA.}
 
 \item{ld_method}{There are two methods. Default method is "r2". 
 The other opportunity is to use "dprime".}
 }
 \value{
-Data frame with response.
+Data frame with results.
 }
 \description{
-Actullaly makes the connection to server and returns results
+URL building and request/response handling
 }

@@ -4,40 +4,39 @@
 \alias{get_qtls}
 \title{Query Qtlizer}
 \usage{
-get_qtls(query, corr = 0.8, max_terms = 5, ld_method = "r2",
+get_qtls(query, corr = NA, max_terms = 5, ld_method = "r2",
   ref_version = "hg19", return_obj = "dataframe")
 }
 \arguments{
-\item{query}{The query. Can either be a single string or a vector.
+\item{query}{The query consists of search terms and can be a single string or a vector.
 Qtlizer allows to query both variants (Rsid, ref_version:chr:pos) and
- genes (Symbol consisting of letters and numbers according to the HGNC guidelines).}
+genes (Symbol consisting of letters and numbers according to the HGNC guidelines). Minimum allowed term length is 2.}
 
-\item{corr}{Linkage disequilibrium based on 1000Genomes Phase 3 European.
-Optional value between 0.1 and 1. Default value is 0.8.}
+\item{corr}{Linkage disequilibrium based on 1000 Genomes Phase 3 European. If this optional value between 0 and 1 is set, 
+the input variants are enriched for proxy variants passing the threshold. Default value is NA.}
 
-\item{max_terms}{Number of queries made at a time. The default value is 5. 
+\item{max_terms}{Number of terms in a single HTTP request. Default value is 5. 
 A large value can lead to a very large result set and a error by the database.}
 
-\item{ld_method}{There are two methods. Default method is "r2". 
-The other opportunity is to use "dprime".}
+\item{ld_method}{There are two methods available: "r2" (default) and "dprime".}
 
-\item{ref_version}{Two possible versions to use hg19 or hg38. Default value
-is hg19.}
+\item{ref_version}{Two possible versions are supported: hg19 (GRCh37) or hg38 (GRCh38). Default value
+is "hg19". This argument is only considered if a GRange is returned.}
 
-\item{return_obj}{The user can choose to get the output as a dataframe or 
-as a GRange object. The default value is the dataframe. If a GRange object is 
-wanted use return_obj = "grange".}
+\item{return_obj}{The user can choose to get the QTL data to be returned as data frame or 
+as a GRange object. The default value is "dataframe".}
 }
 \value{
-Data frame with response.
+Data frame or GRange object with QTL data.
 }
 \description{
-Queries Qtlizer database for expression quantitative trait loci (eQTLs) in human.
+Query Qtlizer database for expression quantitative trait loci (eQTLs) in human.
 }
 \examples{
 get_qtls("rs4284742")
 get_qtls(c("rs4284742", "DEFA1"))
-get_qtls("rs4284742", 0.6)
-get_qtls("rs4284742", max_terms = 4)
-get_qtls("rs4284742", ld_method = "dprime")
+get_qtls(c("rs4284742,DEFA1"))
+get_qtls("rs4284742", return_obj="grange", ref_version="hg38")
+get_qtls("rs4284742", corr=0.6)
+get_qtls("rs4284742", corr=0.2, ld_method = "dprime")
 }

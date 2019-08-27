@@ -36,3 +36,7 @@ Meta
 test.R
 .RData
 *.Rhistory
+vignettes/*.html
+vignettes/*.R
+vignettes/*.txt
+
