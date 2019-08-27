@@ -1,6 +1,10 @@
 # Qtlizer: comprehensive QTL annotation of GWAS results
 [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?hashtags=Qtlizer&url=https://www.biorxiv.org/content/10.1101/495903v2&screen_name=_matmu)
 
+[Authors](# Authors)
+
+
+## Introduction
 This **R** package provides access to the **Qtlizer** web server. **Qtlizer** annotates lists of common small variants (mainly SNPs) and genes in humans with associated changes in gene expression using the most comprehensive database of published quantitative trait loci (QTLs).
 
 Alternatively, the **Qtlizer** can be accessed by using a web-based GUI (http://genehopper.de/qtlizer). More information about usage and available datasets can be found at http://genehopper.de/help#qtlizer_docu.
