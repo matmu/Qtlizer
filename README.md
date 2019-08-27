@@ -2,13 +2,17 @@
 [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?hashtags=Qtlizer&url=https://www.biorxiv.org/content/10.1101/495903v2&screen_name=_matmu)
 
 
-[Introduction](#Introduction)\\
+[Introduction](#Introduction)
+
 [Installation](#Installation)
 [Usage](#Usage)
 [Try out online](#Try-out-online)
 [Authors](#Authors)
 [Citation](#Citation)
 [License](#License)
+
+This line is also a separate paragraph, but...
+This line is only separated by a single newline, so it's a separate line in the *same paragraph*.
 
 
 ## Introduction
