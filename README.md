@@ -61,7 +61,7 @@ df = get_qtls("rs4284742")
 comment(df)
 ```
 
-### Try out online
+## Try out online
 If you want to try out the R package online, there is an example **Google Colaboratory project** at
 
 https://colab.research.google.com/drive/1i1sjQHCjaw2wYzVBnXQ9iaghnk-jSU95#scrollTo=5Hi6sCe7SPFb
