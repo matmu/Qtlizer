@@ -21,3 +21,4 @@ Data frame with results.
 \description{
 URL building and request/response handling
 }
+\keyword{internal}

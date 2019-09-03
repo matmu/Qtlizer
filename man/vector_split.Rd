@@ -17,3 +17,4 @@ List with subvectors.
 \description{
 Splits vector v into n subvectors
 }
+\keyword{internal}

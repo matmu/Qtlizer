@@ -1,15 +1,16 @@
 Package: Qtlizer
-Title: Qtlizer for Bioconductor
+Title: Qtlizer: comprehensive QTL annotation of GWAS results
 Version: 0.99.10
 Authors@R: c(person("Matthias", "Munz", role = c("aut", "cre"), 
                 email = "m.munz@uni-luebeck.de"),
               person("Julia", "Remes", role = "aut")
              )
-Description: Queries can be made to Qtlizer. The user receives a data frame with the response.
+Description: This R package provides access to the Qtlizer web server. Qtlizer annotates lists of common small variants (mainly SNPs) and genes in humans with associated changes in gene expression using the most comprehensive database of published quantitative trait loci (QTLs).
 Depends: R (>= 3.6.0)
 License: GPL-3
 Encoding: UTF-8
-LazyData: true
+LazyData: false
+BugReports: https://github.com/matmu/Qtlizer/issues
 Imports: 
     httr,
     curl,

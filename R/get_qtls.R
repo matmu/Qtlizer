@@ -16,10 +16,10 @@
 #'@param ld_method There are two methods available: "r2" (default) and "dprime".
 #'@param ref_version Two possible versions are supported: hg19 (GRCh37) or 
 #'hg38 (GRCh38). Default value is "hg19". 
-#'This argument is only considered if a GRange is returned.
+#'This argument is only considered if a GenomicRanges::GRanges object is returned.
 #'@param return_obj The user can choose to get the QTL data to be returned 
-#'as data frame or as a GRange object. The default value is "dataframe".
-#'@return Data frame or GRange object with QTL data.
+#'as data frame or as a GenomicRanges::GRanges object. The default value is "dataframe".
+#'@return Data frame or GenomicRanges::GRanges object containing QTL data.
 #'@examples get_qtls("rs4284742")
 #'get_qtls(c("rs4284742", "DEFA1"))
 #'get_qtls(c("rs4284742,DEFA1"))
@@ -71,14 +71,14 @@ get_qtls = function(query, corr = NA, max_terms = 5, ld_method = "r2",
   
   
   # Create GRange container
-  if(tolower(return_obj) == "grange"){
+  if(tolower(return_obj) == "granges"){
     
     if(tolower(ref_version) == "hg19" || tolower(ref_version) == "grch37"){
       
       # Check for missing hg19 positions
       res_with_hg19 = res[which(!is.na(res$var_pos_hg19)),] 
       if(nrow(res_with_hg19) < nrow(res)){
-        message("Not all results in GRange object included due to missing hg19 (GRCh37) positions. Please use set ref_version to hg38 (GRCh38) andd/or set return_obj to 'dataframe' to obtain all results.")
+        message("Not all results in GRanges object included due to missing hg19 (GRCh37) positions. Please use set ref_version to hg38 (GRCh38) andd/or set return_obj to 'dataframe' to obtain all results.")
       }
       
       gres = GenomicRanges::makeGRangesFromDataFrame(res_with_hg19, start.field = "var_pos_hg19", end.field = "var_pos_hg19", 
@@ -107,7 +107,8 @@ get_qtls = function(query, corr = NA, max_terms = 5, ld_method = "r2",
 #'@param ld_method There are two methods. Default method is "r2". 
 #'The other opportunity is to use "dprime".
 #'@return Data frame with results.
-communicate = function(q, corr, ld_method){
+#'@keywords internal
+communicate = function(q, corr, ld_method, tries=2){
   
   
   # Build URL
@@ -120,7 +121,7 @@ communicate = function(q, corr, ld_method){
       url = paste0(url, "&ld_method=", ld_method)
     }
   }
-
+  
   
   # Send post request and retrieve response
   response = httr::POST(url)
@@ -180,10 +181,11 @@ communicate = function(q, corr, ld_method){
 #'@param v input vector
 #'@param n number of subvectors
 #'@return List with subvectors.
+#'@keywords internal
 vector_split = function(v, n) {
   l = length(v)
   r = l/n
-  return(lapply(1:n, function(i) {
+  return(lapply(seq_len(n), function(i) {
     s = max(1, round(r*(i-1))+1)
     e = min(l, round(r*i))
     return(v[s:e])
