@@ -23,7 +23,7 @@
 #'@examples get_qtls("rs4284742")
 #'get_qtls(c("rs4284742", "DEFA1"))
 #'get_qtls(c("rs4284742,DEFA1"))
-#'get_qtls("rs4284742", return_obj="grange", ref_version="hg38")
+#'get_qtls("rs4284742", return_obj="granges", ref_version="hg38")
 #'get_qtls("rs4284742", corr=0.6)
 #'@export
 get_qtls = function(query, corr = NA, max_terms = 5, ld_method = "r2", 
@@ -70,7 +70,7 @@ get_qtls = function(query, corr = NA, max_terms = 5, ld_method = "r2",
   }
   
   
-  # Create GRange container
+  # Create GRanges container
   if(tolower(return_obj) == "granges"){
     
     if(tolower(ref_version) == "hg19" || tolower(ref_version) == "grch37"){
