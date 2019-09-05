@@ -25,13 +25,13 @@ A large value can lead to a very large result set and a error by the database.}
 
 \item{ref_version}{Two possible versions are supported: hg19 (GRCh37) or 
 hg38 (GRCh38). Default value is "hg19". 
-This argument is only considered if a GRange is returned.}
+This argument is only considered if a GenomicRanges::GRanges object is returned.}
 
 \item{return_obj}{The user can choose to get the QTL data to be returned 
-as data frame or as a GRange object. The default value is "dataframe".}
+as data frame or as a GenomicRanges::GRanges object. The default value is "dataframe".}
 }
 \value{
-Data frame or GRange object with QTL data.
+Data frame or GenomicRanges::GRanges object containing QTL data.
 }
 \description{
 Query Qtlizer database for expression quantitative 
@@ -40,7 +40,7 @@ trait loci (eQTLs) in human.
 \examples{
 get_qtls("rs4284742")
 get_qtls(c("rs4284742", "DEFA1"))
-get_qtls(c("rs4284742,DEFA1"))
-get_qtls("rs4284742", return_obj="grange", ref_version="hg38")
+get_qtls("rs4284742,DEFA1")
+get_qtls("rs4284742", return_obj="granges", ref_version="hg38")
 get_qtls("rs4284742", corr=0.6)
 }

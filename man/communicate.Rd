@@ -4,7 +4,7 @@
 \alias{communicate}
 \title{URL building and request/response handling}
 \usage{
-communicate(q, corr, ld_method)
+communicate(q, corr, ld_method, n.tries = 2)
 }
 \arguments{
 \item{q}{The qtlizer query. Can either be a single string or a vector.}

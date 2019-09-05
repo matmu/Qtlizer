@@ -22,7 +22,7 @@
 #'@return Data frame or GenomicRanges::GRanges object containing QTL data.
 #'@examples get_qtls("rs4284742")
 #'get_qtls(c("rs4284742", "DEFA1"))
-#'get_qtls(c("rs4284742,DEFA1"))
+#'get_qtls("rs4284742,DEFA1")
 #'get_qtls("rs4284742", return_obj="granges", ref_version="hg38")
 #'get_qtls("rs4284742", corr=0.6)
 #'@export
@@ -108,7 +108,7 @@ get_qtls = function(query, corr = NA, max_terms = 5, ld_method = "r2",
 #'The other opportunity is to use "dprime".
 #'@return Data frame with results.
 #'@keywords internal
-communicate = function(q, corr, ld_method, tries=2){
+communicate = function(q, corr, ld_method, n.tries=2){
   
   
   # Build URL
@@ -123,24 +123,25 @@ communicate = function(q, corr, ld_method, tries=2){
   }
   
   
-  # Send post request and retrieve response
-  response = httr::POST(url)
-  result = httr::content(response)
-  if(!is.character(result)){
-    
-    Sys.sleep(5)
-    
+  # Send POST request and retrieve response
+  while(n.tries > 0){
     response = httr::POST(url)
-    result = httr::content(response)
     
-    if(!is.character(result)){
-      # title = rvest::html_text(rvest::html_nodes(result, "title"))
-      # h1 = rvest::html_text(rvest::html_nodes(result, "h1"))
-      # mess = rvest::html_text(rvest::html_nodes(result, "p"))
-      # warning(paste(title, h1, mess, sep="\n"))
-      stop("Web server seems to be down. Try again later!")
+    if(!http_error(response)){
+      break
     }
+    
+    Sys.sleep(3)
+    n.tries = n.tries-1
   }
+  
+  
+  if(n.tries == 0){
+    stop("Web server seems to be down. Try again later!")
+  }
+  
+  
+  result = httr::content(response)
   result = unlist(strsplit(result , "\n"))
   
   
@@ -185,7 +186,7 @@ communicate = function(q, corr, ld_method, tries=2){
 vector_split = function(v, n) {
   l = length(v)
   r = l/n
-  return(lapply(seq_len(n), function(i) {
+  return(lapply(seq_len(n), function(i){
     s = max(1, round(r*(i-1))+1)
     e = min(l, round(r*i))
     return(v[s:e])
