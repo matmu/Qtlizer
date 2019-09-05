@@ -127,7 +127,7 @@ communicate = function(q, corr, ld_method, n.tries=2){
   while(n.tries > 0){
     response = httr::POST(url)
     
-    if(!http_error(response)){
+    if(!httr::http_error(response)){
       break
     }
     
