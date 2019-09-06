@@ -1,5 +1,5 @@
 ---
-title: "Qtlizer"
+title: "Qtlizer: comprehensive QTL annotation of GWAS results"
 output: BiocStyle::html_document
 author: "Julia Remes & Matthias Munz"
 vignette: >
@@ -21,14 +21,14 @@ This **R** package provides access to the **Qtlizer** web server. **Qtlizer** an
 
 
 # Installation
-```{r}
+```{r setup, eval=FALSE}
 if(!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
 BiocManager::install("Qtlizer")
 ```
 
 # Loading package
-```{r setup}
+```{r}
 library(Qtlizer)
 ```
 

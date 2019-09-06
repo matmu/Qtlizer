@@ -24,3 +24,7 @@ Changes in version 0.99.10 (2019-08-27)
 
 Changes in version 0.99.11 (2019-09-03)
 + Incorporated Bioconductor reviewer comments
+
+Changes in version 0.99.12 (2019-09-06)
++ eval=false for package installation in vignette 
++ Title change in vignette
