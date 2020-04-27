@@ -1,6 +1,6 @@
 Package: Qtlizer
 Title: Qtlizer: comprehensive QTL annotation of GWAS results
-Version: 1.2.0
+Version: 1.3.0
 Authors@R: c(person("Matthias", "Munz", role = c("aut", "cre"), 
                 email = "m.munz@uni-luebeck.de"),
               person("Julia", "Remes", role = "aut")
