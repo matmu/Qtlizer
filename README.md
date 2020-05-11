@@ -22,7 +22,7 @@ Alternatively, the **Qtlizer** can be accessed by using a web-based GUI (http://
 
 ## Installation
 ```R
-devtools::install_github('matmu/Qtlizer')
+devtools::install_github('matmu/Qtlizer', build_vignettes = TRUE)
 ```
 
 **Please note**: A valid internet connection (HTTP port: 80) is required in order to install and use the package.
