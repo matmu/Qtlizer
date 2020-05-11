@@ -27,6 +27,12 @@ if(!requireNamespace("BiocManager", quietly = TRUE))
 BiocManager::install("Qtlizer")
 ```
 
+or
+
+```R
+devtools::install_github('matmu/Qtlizer', build_vignettes = TRUE)
+```
+
 # Loading package
 ```{r}
 library(Qtlizer)
