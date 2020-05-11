@@ -87,7 +87,7 @@ To run the project, make a private copy or open the project in playground mode a
 
 
 ## Authors
-Matthias Munz [![](https://img.shields.io/twitter/follow/_matmu?label=Follow&style=social)](https://img.shields.io/twitter/follow/_matmu?label=Follow&style=social)\
+Matthias Munz [![](https://img.shields.io/twitter/follow//_MatthiasMunz?label=Follow&style=social)](https://img.shields.io/twitter/follow/_matmu?label=Follow&style=social)\
 Julia Remes\
 University of Lübeck, Germany
 
