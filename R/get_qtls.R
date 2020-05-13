@@ -146,7 +146,7 @@ communicate = function(q, corr, ld_method, n.tries=2){
   
   
   # Display error message from server
-  if(is.null(grep("^#", result))){
+  if(length(grep("^#", result)) == 0){
     warning(result)
     return()
   }
