@@ -1,16 +1,15 @@
 
 citEntry(entry="article",
          title = "Qtlizer: comprehensive QTL annotation of GWAS results",
-         author = personList( as.person("Matthias Munz" ),
-           as.person("Inken Wohlers" ),
-           as.person("Eric Simon" ),
-           as.person("Tobias Reinberger" ),
-           as.person("Hauke Busch" ),
-           as.person("Arne Schaefer" ),
-           as.person("Jeanette Erdmann" ),
+         author = personList(as.person("Matthias Munz"),
+           as.person("Inken Wohlers"),
+           as.person("Eric Simon"),
+           as.person("Tobias Reinberger"),
+           as.person("Hauke Busch"),
+           as.person("Arne Schaefer"),
+           as.person("Jeanette Erdmann")),
          year = 2018,
          journal = "bioRxiv",
          doi = "doi.org/10.1101/495903",
          url = "https://www.biorxiv.org/content/10.1101/495903v3",
-         textVersion = 
-         "Munz M, Wohlers I, Simon E, Busch H, Schaefer A and Erdmann J (2018) Qtlizer: comprehensive QTL annotation of GWAS results. bioRxiv. doi:10.1101/495903" )
+         textVersion = "Munz M, Wohlers I, Simon E, Busch H, Schaefer A and Erdmann J (2018) Qtlizer: comprehensive QTL annotation of GWAS results. bioRxiv. doi:10.1101/495903")
