@@ -6,7 +6,7 @@
 #'@param query The query consists of search terms and can be a single 
 #'string or a vector. Qtlizer allows to query both variants 
 #'(Rsid, ref_version:chr:pos) and genes (Symbol consisting of letters 
-#'and numbers according to the HGNC guidelines). Minimum allowed term length is 2.
+#'and numbers according to the HGNC guidelines). The minimum allowed character length per search term is 2.
 #'@param corr Linkage disequilibrium based on 1000 Genomes Phase 3 European. 
 #'If this optional value between 0 and 1 is set, 
 #'the input variants are enriched for proxy variants passing the threshold. 
