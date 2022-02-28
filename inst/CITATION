@@ -8,8 +8,8 @@ citEntry(entry="article",
            as.person("Hauke Busch"),
            as.person("Arne Schaefer"),
            as.person("Jeanette Erdmann")),
-         year = 2018,
-         journal = "bioRxiv",
-         doi = "doi.org/10.1101/495903",
-         url = "https://www.biorxiv.org/content/10.1101/495903v3",
-         textVersion = "Munz M, Wohlers I, Simon E, Busch H, Schaefer A and Erdmann J (2018) Qtlizer: comprehensive QTL annotation of GWAS results. bioRxiv. doi:10.1101/495903")
+         year = 2020,
+         journal = "Scientific Reports",
+         doi = "doi.org/10.1038/s41598-020-75770-7",
+         url = "https://www.nature.com/articles/s41598-020-75770-7",
+         textVersion = "Munz M, Wohlers I, Simon E, Reinberger T, Busch H, Schaefer A and Erdmann J (2020) Qtlizer: comprehensive QTL annotation of GWAS results. Scientific Reports. doi:10.1038/s41598-020-75770-7")
