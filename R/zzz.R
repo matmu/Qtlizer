@@ -9,7 +9,10 @@
   Github Repo: https://github.com/matmu/Qtlizer
   
   Citation appreciated:
-  Munz M, Wohlers I, Simon E, Reinberger T, Busch H, Schaefer A and Erdmann J (2020) Qtlizer: comprehensive QTL annotation of GWAS results. Scientific Reports. doi:10.1038/s41598-020-75770-7
-  
+  Munz M et al. (2020) Qtlizer: comprehensive QTL annotation of GWAS results. Scientific Reports. doi:10.1038/s41598-020-75770-7
+  Munz M. et al. (2015) Multidimensional gene search with Genehopper. Nucleic Acids Res. doi:10.1093/nar/gkv511
+
+  Support me: https://matthiasmunz.de/support_me/
+
   ---------", domain = NULL, appendLF = TRUE)
 }

@@ -112,7 +112,7 @@ communicate = function(q, corr, ld_method, n.tries=2){
   
   
   # Build URL
-  url = paste0('http://genehopper.de/rest/qtlizer?q=', q)
+  url = paste0('http://161.97.150.91/rest/qtlizer?q=', q)
   
   if(is.numeric(corr) && corr>=0 && corr<=1){
     url = paste0(url, "&corr=", round(corr, digits=2))
